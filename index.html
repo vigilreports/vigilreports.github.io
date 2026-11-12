@@ -6,38 +6,232 @@
 <title>Jaza — Software Developer</title>
 <meta name="description" content="Jaza — software developer. Personal portfolio showcasing my coding skills and open-source web apps built with JavaScript, HTML and CSS, hosted on GitHub Pages.">
 <style>
+:root {
+  --bg: #0a0e14;
+  --bg-soft: #0d1117;
+  --card: #11161f;
+  --card-border: #1e2632;
+  --text: #e6edf3;
+  --muted: #9aa7b5;
+  --blue: #58a6ff;
+  --blue-deep: #0969da;
+  --gold: #f2b705;
+  --green: #3fb950;
+}
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1a2332; background: #f6f7f9; line-height: 1.6; }
-header { background: #0d1117; color: #e6edf3; padding: 56px 20px 44px; text-align: center; }
-header h1 { font-size: 40px; }
-header h1 span { color: #58a6ff; }
-header p { opacity: .9; max-width: 640px; margin: 12px auto 0; font-size: 18px; }
-header p code { background: #161b22; padding: 2px 8px; border-radius: 6px; font-size: 15px; }
-main { max-width: 860px; margin: 0 auto; padding: 32px 20px 48px; }
-.card { background: #fff; border: 1px solid #e3e6ea; border-radius: 12px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(13,17,23,.06); }
-.card h2 { font-size: 22px; margin-bottom: 10px; color: #0d1117; }
-.card h3 { font-size: 18px; margin: 16px 0 6px; color: #0d1117; }
-.btn { display: inline-block; padding: 12px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; background: #0d1117; color: #fff; margin: 14px 8px 0 0; }
-.btn-blue { background: #0969da; }
-.tag { display: inline-block; background: #ddf4ff; color: #0969da; border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 600; margin: 4px 4px 0 0; }
-pre { background: #0d1117; color: #e6edf3; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 14px; margin-top: 12px; }
-pre .c { color: #8b949e; }
-ul { margin: 10px 0 0 20px; }
-li { margin-bottom: 6px; }
-.note { font-size: 14px; color: #5a6b7d; margin-top: 14px; }
-footer { text-align: center; color: #7a8a9a; font-size: 13px; padding: 20px; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--blue); }
+::selection { background: rgba(88,166,255,.35); }
+
+/* ---------- Nav ---------- */
+nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(10,14,20,.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--card-border);
+}
+.nav-inner {
+  max-width: 960px; margin: 0 auto; padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); font-weight: 700; font-size: 17px; }
+.monogram {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg, #0969da, #58a6ff);
+  color: #fff; display: grid; place-items: center;
+  font-size: 19px; font-weight: 800;
+  box-shadow: 0 4px 16px rgba(9,105,218,.45);
+}
+.nav-links { display: flex; gap: 22px; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; }
+.nav-links a:hover { color: var(--text); }
+@media (max-width: 560px) { .nav-links { display: none; } }
+
+/* ---------- Hero ---------- */
+header {
+  position: relative; overflow: hidden;
+  padding: 84px 20px 72px; text-align: center;
+  background:
+    radial-gradient(600px 300px at 20% 0%, rgba(9,105,218,.35), transparent 60%),
+    radial-gradient(500px 260px at 85% 10%, rgba(88,166,255,.18), transparent 60%),
+    var(--bg);
+}
+header::after {
+  content: ""; position: absolute; left: 50%; bottom: 0;
+  width: 720px; height: 1px; transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, #2a3646, transparent);
+}
+.hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+.eyebrow {
+  display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--blue);
+  background: rgba(88,166,255,.12); border: 1px solid rgba(88,166,255,.3);
+  padding: 6px 14px; border-radius: 999px; margin-bottom: 22px;
+}
+header h1 { font-size: clamp(42px, 7vw, 64px); line-height: 1.05; letter-spacing: -.02em; }
+header h1 span {
+  background: linear-gradient(90deg, #58a6ff, #79c0ff 55%, #f2b705);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.lede { font-size: 19px; color: var(--muted); max-width: 620px; margin: 18px auto 0; }
+.lede code {
+  background: #161b22; border: 1px solid #21262d; color: #79c0ff;
+  padding: 2px 8px; border-radius: 6px; font-size: 15px;
+}
+.cta { margin-top: 30px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-block; padding: 13px 24px; border-radius: 10px;
+  text-decoration: none; font-weight: 650; font-size: 16px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--blue-deep); color: #fff; box-shadow: 0 8px 24px rgba(9,105,218,.4); }
+.btn-ghost { background: #161b22; color: var(--text); border: 1px solid #30363d; }
+.stats {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  margin-top: 44px;
+}
+.stat {
+  background: rgba(255,255,255,.04); border: 1px solid var(--card-border);
+  border-radius: 12px; padding: 14px 22px; min-width: 130px;
+}
+.stat b { display: block; font-size: 26px; line-height: 1.1; }
+.stat span { font-size: 13px; color: var(--muted); }
+
+/* ---------- Layout ---------- */
+main { max-width: 960px; margin: 0 auto; padding: 48px 20px 56px; }
+section { margin-bottom: 20px; }
+.card {
+  background: linear-gradient(180deg, #121722, #0f141d);
+  border: 1px solid var(--card-border);
+  border-radius: 16px; padding: 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.35);
+}
+.card + .card { margin-top: 20px; }
+.card h2 { font-size: 24px; letter-spacing: -.01em; margin-bottom: 4px; }
+.card h2::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: var(--blue); margin-right: 10px; }
+.card .sub { color: var(--muted); margin-bottom: 8px; }
+.card h3 { font-size: 19px; margin: 22px 0 6px; }
+.card p { color: #c9d1d9; }
+.tag {
+  display: inline-block; background: rgba(88,166,255,.12); color: #79c0ff;
+  border: 1px solid rgba(88,166,255,.25);
+  border-radius: 999px; padding: 4px 12px; font-size: 13px; font-weight: 600; margin: 8px 6px 0 0;
+}
+.tag.green { background: rgba(63,185,80,.12); color: #56d364; border-color: rgba(63,185,80,.3); }
+.note { font-size: 14px; color: var(--muted); margin-top: 16px; }
+.btn-sm { padding: 10px 18px; font-size: 15px; margin-top: 16px; }
+.btn-gold { background: var(--gold); color: #1a2332; }
+
+/* ---------- Projects ---------- */
+.project { border-top: 1px solid var(--card-border); padding-top: 22px; margin-top: 22px; }
+.project:first-of-type { border-top: 0; padding-top: 0; margin-top: 12px; }
+.project-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.project-head h3 { margin: 0; font-size: 20px; }
+.badge {
+  font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--green); background: rgba(63,185,80,.12);
+  border: 1px solid rgba(63,185,80,.3); border-radius: 999px; padding: 4px 10px; white-space: nowrap;
+}
+.roadmap { list-style: none; margin-top: 14px; }
+.roadmap li {
+  display: flex; gap: 14px; padding: 12px 0;
+  border-top: 1px solid var(--card-border);
+}
+.roadmap li:first-child { border-top: 0; }
+.roadmap .num {
+  flex: 0 0 28px; width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(88,166,255,.15); color: var(--blue);
+  display: grid; place-items: center; font-size: 14px; font-weight: 700;
+}
+.roadmap b { color: var(--text); }
+
+/* ---------- Code window ---------- */
+.code-window {
+  margin-top: 18px; border: 1px solid #21262d; border-radius: 12px; overflow: hidden;
+  background: #0d1117; box-shadow: 0 8px 32px rgba(0,0,0,.4);
+}
+.code-bar {
+  display: flex; align-items: center; gap: 8px;
+  background: #161b22; padding: 11px 14px; border-bottom: 1px solid #21262d;
+}
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+.code-bar span { margin-left: 8px; font-size: 13px; color: var(--muted); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+.code-window pre {
+  padding: 18px; overflow-x: auto; font-size: 14px; line-height: 1.65;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; color: #e6edf3;
+}
+.kw { color: #ff7b72; } .fn { color: #d2a8ff; } .str { color: #a5d6ff; } .cm { color: #8b949e; } .num { color: #79c0ff; }
+.principles { list-style: none; margin-top: 18px; }
+.principles li { padding: 8px 0 8px 28px; position: relative; color: #c9d1d9; }
+.principles li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+
+/* ---------- Contact ---------- */
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 18px; }
+.contact-item {
+  display: block; text-decoration: none; color: var(--text);
+  background: rgba(255,255,255,.04); border: 1px solid var(--card-border);
+  border-radius: 12px; padding: 18px; transition: transform .15s ease, border-color .15s ease;
+}
+.contact-item:hover { transform: translateY(-2px); border-color: var(--blue); }
+.contact-item b { display: block; font-size: 16px; }
+.contact-item span { font-size: 14px; color: var(--muted); word-break: break-all; }
+
+footer { text-align: center; color: #7a8a9a; font-size: 13px; padding: 8px 20px 36px; }
+footer p + p { margin-top: 4px; }
+@media (max-width: 640px) {
+  header { padding: 64px 16px 56px; }
+  .card { padding: 24px 20px; }
+  .stat { min-width: 44%; }
+}
 </style>
 </head>
 <body>
-<header>
-  <h1>Jaza <span>— Software Developer</span></h1>
-  <p>Personal developer portfolio. I build open-source web apps with <code>JavaScript</code>, <code>HTML</code> and <code>CSS</code> — hosted on GitHub Pages, source code on GitHub.</p>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="monogram">J</span> Jaza</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#how-i-build">How I build</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="hero-inner">
+    <span class="eyebrow">Personal developer portfolio</span>
+    <h1>Jaza<br><span>Software Developer</span></h1>
+    <p class="lede">I build open-source web apps with <code>JavaScript</code>, <code>HTML</code> and <code>CSS</code> — hosted on GitHub Pages, source code on GitHub.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#projects">View my projects ↓</a>
+      <a class="btn btn-ghost" href="https://github.com/vigilreports">GitHub ↗</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>2</b><span>open-source repos</span></div>
+      <div class="stat"><b>58</b><span>packages tracked</span></div>
+      <div class="stat"><b>12</b><span>workflow stages</span></div>
+      <div class="stat"><b>24</b><span>checklist items</span></div>
+    </div>
+  </div>
 </header>
+
 <main>
-  <div class="card">
+  <section class="card" id="about">
     <h2>About</h2>
+    <p class="sub">Developer first — I write the code, then I use it.</p>
     <p>I'm Jaza, a software developer. I write web apps that solve real workflow problems — tracking, checklists, data import and reporting — and I publish the source code on GitHub so anyone can read it, use it and learn from it. I started coding these tools to automate my own day-to-day work, and kept building from there.</p>
-    <p>
+    <p style="margin-top:12px">
       <span class="tag">JavaScript</span>
       <span class="tag">HTML</span>
       <span class="tag">CSS</span>
@@ -46,55 +240,85 @@ footer { text-align: center; color: #7a8a9a; font-size: 13px; padding: 20px; }
       <span class="tag">CSV / Excel import</span>
       <span class="tag">localStorage</span>
     </p>
-    <p class="note">GitHub: github.com/vigilreports &nbsp;|&nbsp; Email: vigil.reports@gmail.com</p>
-  </div>
+  </section>
 
-  <div class="card">
+  <section class="card" id="projects">
     <h2>Open-Source Projects</h2>
+    <p class="sub">Every project below has public source code and a live demo.</p>
 
-    <h3>SolutionQs — procurement package tracker</h3>
-    <p>A single-page web app that tracks 58 packages through a 12-stage workflow, with a 24-item checklist per package, a vendor register, bid comparison, CSV import and export, and reminders. Built with vanilla JavaScript — no framework, no backend, data stored in the browser.</p>
-    <p>
-      <span class="tag">JavaScript</span>
-      <span class="tag">Single-page app</span>
-      <span class="tag">CSV import / export</span>
-      <span class="tag">Workflow state machine</span>
-    </p>
-    <a class="btn btn-blue" href="https://vigilreports.github.io/solutionqs/">Live demo</a>
-    <a class="btn" href="https://github.com/vigilreports/solutionqs">Source code on GitHub</a>
+    <div class="project">
+      <div class="project-head">
+        <h3>SolutionQs — procurement package tracker</h3>
+        <span class="badge">Featured</span>
+      </div>
+      <p>A single-page web app that tracks 58 packages through a 12-stage workflow, with a 24-item checklist per package, a vendor register, bid comparison, CSV import and export, and reminders. Built with vanilla JavaScript — no framework, no backend, data stored in the browser.</p>
+      <p>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Single-page app</span>
+        <span class="tag">CSV import / export</span>
+        <span class="tag">Workflow state machine</span>
+      </p>
+      <a class="btn btn-primary btn-sm" href="https://vigilreports.github.io/solutionqs/">Live demo ↗</a>
+      <a class="btn btn-ghost btn-sm" href="https://github.com/vigilreports/solutionqs">Source code on GitHub ↗</a>
+    </div>
 
-    <h3>This portfolio — vigilreports.github.io</h3>
-    <p>A static site built with hand-written HTML and CSS, deployed with GitHub Pages. The source is public in its own repository.</p>
-    <a class="btn" href="https://github.com/vigilreports/vigilreports.github.io">Source code on GitHub</a>
+    <div class="project">
+      <div class="project-head">
+        <h3>This portfolio — vigilreports.github.io</h3>
+        <span class="badge">Open source</span>
+      </div>
+      <p>A static site built with hand-written HTML and CSS, deployed with GitHub Pages. The source is public in its own repository.</p>
+      <a class="btn btn-ghost btn-sm" href="https://github.com/vigilreports/vigilreports.github.io">Source code on GitHub ↗</a>
+    </div>
 
-    <h3>What I'm coding next</h3>
-    <ul>
-      <li>A BOQ (bill of quantities) preparation app — PDF drawing upload, automatic measurement proposals, export.</li>
-      <li>An interim payment generator — executed quantities × BOQ rates, with retention and VAT.</li>
-      <li>A subcontractor payment application generator.</li>
-    </ul>
-  </div>
+    <div class="project">
+      <h3>What I'm coding next</h3>
+      <ul class="roadmap">
+        <li><span class="num">1</span><span><b>BOQ preparation app</b> — PDF drawing upload, automatic measurement proposals, export.</span></li>
+        <li><span class="num">2</span><span><b>Interim payment generator</b> — executed quantities × BOQ rates, with retention and VAT.</span></li>
+        <li><span class="num">3</span><span><b>Subcontractor payment application generator</b> — applications and certification, from the same data.</span></li>
+      </ul>
+    </div>
+  </section>
 
-  <div class="card">
+  <section class="card" id="how-i-build">
     <h2>How I build</h2>
-    <p>Small, readable JavaScript. State in plain objects, rendering from data, and CSV in and out so the data always stays portable. Example — the workflow stage logic from SolutionQs:</p>
-<pre><span class="c">// 12-stage workflow: a package advances one stage at a time</span>
-const STAGES = ["Enquiry", "Quoted", "Compared", "Ordered", "Delivered"];
-function nextStage(pkg) {
-  const i = STAGES.indexOf(pkg.stage);
-  if (i &lt; STAGES.length - 1) pkg.stage = STAGES[i + 1];
-  return pkg;
-}</pre>
-    <p class="note">Everything I publish is a personal, non-commercial project. No pricing, no ads, no tracking — just code and a live demo.</p>
-  </div>
+    <p class="sub">Small, readable JavaScript — no framework where none is needed.</p>
+    <p>State in plain objects, rendering from data, and CSV in and out so the data always stays portable. Example — the workflow stage logic from SolutionQs:</p>
+    <div class="code-window">
+      <div class="code-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span>workflow.js</span></div>
+<pre><span class="cm">// 12-stage workflow: a package advances one stage at a time</span>
+<span class="kw">const</span> STAGES = [<span class="str">"Enquiry"</span>, <span class="str">"Quoted"</span>, <span class="str">"Compared"</span>, <span class="str">"Ordered"</span>, <span class="str">"Delivered"</span>];
 
-  <div class="card">
+<span class="kw">function</span> <span class="fn">nextStage</span>(pkg) {
+  <span class="kw">const</span> i = STAGES.<span class="fn">indexOf</span>(pkg.stage);
+  <span class="kw">if</span> (i &lt; STAGES.length - <span class="num">1</span>) pkg.stage = STAGES[i + <span class="num">1</span>];
+  <span class="kw">return</span> pkg;
+}</pre>
+    </div>
+    <ul class="principles">
+      <li>Data stays portable — CSV in, CSV out, nothing locked in.</li>
+      <li>Works offline in the browser — no server to keep alive.</li>
+      <li>Source code public on GitHub, so anyone can read how it works.</li>
+    </ul>
+    <p class="note">Everything I publish is a personal, non-commercial project. No pricing, no ads, no tracking — just code and a live demo.</p>
+  </section>
+
+  <section class="card" id="contact">
     <h2>Contact</h2>
-    <p>GitHub: <a href="https://github.com/vigilreports">github.com/vigilreports</a><br>
-    Email: vigil.reports@gmail.com<br>
-    LinkedIn: linkedin.com/in/mohamed-jazath</p>
-  </div>
+    <p class="sub">Find my code, or reach out.</p>
+    <div class="contact-grid">
+      <a class="contact-item" href="https://github.com/vigilreports"><b>GitHub</b><span>github.com/vigilreports</span></a>
+      <a class="contact-item" href="mailto:vigil.reports@gmail.com"><b>Email</b><span>vigil.reports@gmail.com</span></a>
+      <a class="contact-item" href="https://linkedin.com/in/mohamed-jazath"><b>LinkedIn</b><span>linkedin.com/in/mohamed-jazath</span></a>
+    </div>
+  </section>
 </main>
-<footer>© Jaza — personal developer portfolio. Built with HTML, CSS and JavaScript.</footer>
+
+<footer>
+  <p>© Jaza — personal developer portfolio. Built with HTML, CSS and JavaScript.</p>
+  <p>Personal, non-commercial project. No pricing, no ads, no tracking.</p>
+</footer>
+
 </body>
 </html>
