@@ -3,21 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jaza — Developer Portfolio</title>
-<meta name="description" content="Mohamed Jazath Mohamed Jahfar — Senior Quantity Surveyor and developer of QS tools, including SolutionQs.">
+<title>Jaza — Software Developer</title>
+<meta name="description" content="Jaza — software developer. Personal portfolio showcasing my coding skills and open-source web apps built with JavaScript, HTML and CSS, hosted on GitHub Pages.">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1a2332; background: #f6f7f9; line-height: 1.6; }
-header { background: #0f2a44; color: #fff; padding: 56px 20px 44px; text-align: center; }
+header { background: #0d1117; color: #e6edf3; padding: 56px 20px 44px; text-align: center; }
 header h1 { font-size: 40px; }
-header h1 span { color: #f2b705; }
-header p { opacity: .9; max-width: 620px; margin: 12px auto 0; font-size: 18px; }
+header h1 span { color: #58a6ff; }
+header p { opacity: .9; max-width: 640px; margin: 12px auto 0; font-size: 18px; }
+header p code { background: #161b22; padding: 2px 8px; border-radius: 6px; font-size: 15px; }
 main { max-width: 860px; margin: 0 auto; padding: 32px 20px 48px; }
-.card { background: #fff; border: 1px solid #e3e6ea; border-radius: 12px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(15,42,68,.06); }
-.card h2 { font-size: 22px; margin-bottom: 10px; color: #0f2a44; }
-.card h3 { font-size: 18px; margin: 16px 0 6px; color: #0f2a44; }
-.btn { display: inline-block; padding: 12px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; background: #0f2a44; color: #fff; margin-top: 14px; }
-.btn-gold { background: #f2b705; color: #1a2332; }
+.card { background: #fff; border: 1px solid #e3e6ea; border-radius: 12px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(13,17,23,.06); }
+.card h2 { font-size: 22px; margin-bottom: 10px; color: #0d1117; }
+.card h3 { font-size: 18px; margin: 16px 0 6px; color: #0d1117; }
+.btn { display: inline-block; padding: 12px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; background: #0d1117; color: #fff; margin: 14px 8px 0 0; }
+.btn-blue { background: #0969da; }
+.tag { display: inline-block; background: #ddf4ff; color: #0969da; border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 600; margin: 4px 4px 0 0; }
+pre { background: #0d1117; color: #e6edf3; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 14px; margin-top: 12px; }
+pre .c { color: #8b949e; }
 ul { margin: 10px 0 0 20px; }
 li { margin-bottom: 6px; }
 .note { font-size: 14px; color: #5a6b7d; margin-top: 14px; }
@@ -26,33 +30,71 @@ footer { text-align: center; color: #7a8a9a; font-size: 13px; padding: 20px; }
 </head>
 <body>
 <header>
-  <h1>Jaza <span>— Developer</span></h1>
-  <p>Senior Quantity Surveyor building software tools for QS work — procurement, payment certification, variations and claims.</p>
+  <h1>Jaza <span>— Software Developer</span></h1>
+  <p>Personal developer portfolio. I build open-source web apps with <code>JavaScript</code>, <code>HTML</code> and <code>CSS</code> — hosted on GitHub Pages, source code on GitHub.</p>
 </header>
 <main>
   <div class="card">
     <h2>About</h2>
-    <p>I'm Mohamed Jazath Mohamed Jahfar, Senior Quantity Surveyor with 10+ years in post-contract cost management, FIDIC and Design-Build contract administration across Saudi Arabia, Qatar and Sri Lanka. I build the tools I need for the job — in the browser, with real project data — and share them with my team.</p>
-    <p class="note">GitHub: github.com/vigilreports &nbsp;|&nbsp; Email: vigil.reports@gmail.com &nbsp;|&nbsp; LinkedIn: linkedin.com/in/mohamed-jazath</p>
+    <p>I'm Jaza, a software developer. I write web apps that solve real workflow problems — tracking, checklists, data import and reporting — and I publish the source code on GitHub so anyone can read it, use it and learn from it. I started coding these tools to automate my own day-to-day work, and kept building from there.</p>
+    <p>
+      <span class="tag">JavaScript</span>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">GitHub Pages</span>
+      <span class="tag">Git</span>
+      <span class="tag">CSV / Excel import</span>
+      <span class="tag">localStorage</span>
+    </p>
+    <p class="note">GitHub: github.com/vigilreports &nbsp;|&nbsp; Email: vigil.reports@gmail.com</p>
   </div>
+
   <div class="card">
-    <h2>Projects</h2>
-    <h3>SolutionQs — QS Procurement (RFQ) Package Tool</h3>
-    <p>A 12-stage QS workflow tracker with a 24-item RFQ checklist, vendor register and bid comparison. Live project: Palm Jebel Ali, DMS 149858 — 58 packages, 372 enquiries, 181 quotes received.</p>
-    <a class="btn" href="https://vigilreports.github.io/solutionqs/">Open SolutionQs</a>
-    <a class="btn btn-gold" href="https://github.com/vigilreports/solutionqs">View on GitHub</a>
-    <h3>QS Procurement Tool — published version</h3>
-    <p>Login, SAP-style project selection, reminders and tasks by workflow level, with Admin and Team logins separated.</p>
+    <h2>Open-Source Projects</h2>
+
+    <h3>SolutionQs — procurement package tracker</h3>
+    <p>A single-page web app that tracks 58 packages through a 12-stage workflow, with a 24-item checklist per package, a vendor register, bid comparison, CSV import and export, and reminders. Built with vanilla JavaScript — no framework, no backend, data stored in the browser.</p>
+    <p>
+      <span class="tag">JavaScript</span>
+      <span class="tag">Single-page app</span>
+      <span class="tag">CSV import / export</span>
+      <span class="tag">Workflow state machine</span>
+    </p>
+    <a class="btn btn-blue" href="https://vigilreports.github.io/solutionqs/">Live demo</a>
+    <a class="btn" href="https://github.com/vigilreports/solutionqs">Source code on GitHub</a>
+
+    <h3>This portfolio — vigilreports.github.io</h3>
+    <p>A static site built with hand-written HTML and CSS, deployed with GitHub Pages. The source is public in its own repository.</p>
+    <a class="btn" href="https://github.com/vigilreports/vigilreports.github.io">Source code on GitHub</a>
+
+    <h3>What I'm coding next</h3>
     <ul>
-      <li>Admin login — for Jaza only</li>
-      <li>Team login — colleagues sign in with a username created by the admin</li>
+      <li>A BOQ (bill of quantities) preparation app — PDF drawing upload, automatic measurement proposals, export.</li>
+      <li>An interim payment generator — executed quantities × BOQ rates, with retention and VAT.</li>
+      <li>A subcontractor payment application generator.</li>
     </ul>
   </div>
+
   <div class="card">
-    <h2>Stack</h2>
-    <p>Static web apps on GitHub Pages, JavaScript, HTML/CSS, CSV / Excel import, Google Drive for supporting documents.</p>
+    <h2>How I build</h2>
+    <p>Small, readable JavaScript. State in plain objects, rendering from data, and CSV in and out so the data always stays portable. Example — the workflow stage logic from SolutionQs:</p>
+<pre><span class="c">// 12-stage workflow: a package advances one stage at a time</span>
+const STAGES = ["Enquiry", "Quoted", "Compared", "Ordered", "Delivered"];
+function nextStage(pkg) {
+  const i = STAGES.indexOf(pkg.stage);
+  if (i &lt; STAGES.length - 1) pkg.stage = STAGES[i + 1];
+  return pkg;
+}</pre>
+    <p class="note">Everything I publish is a personal, non-commercial project. No pricing, no ads, no tracking — just code and a live demo.</p>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
+    <p>GitHub: <a href="https://github.com/vigilreports">github.com/vigilreports</a><br>
+    Email: vigil.reports@gmail.com<br>
+    LinkedIn: linkedin.com/in/mohamed-jazath</p>
   </div>
 </main>
-<footer>© Jaza — vigilreports.is-a.dev</footer>
+<footer>© Jaza — personal developer portfolio. Built with HTML, CSS and JavaScript.</footer>
 </body>
 </html>
